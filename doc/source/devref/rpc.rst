@@ -25,7 +25,7 @@ AMQP is the messaging technology chosen by the OpenStack cloud.  The AMQP broker
 
 Nova uses direct, fanout, and topic-based exchanges. The architecture looks like the one depicted in the figure below:
 
-.. image:: /images/rpc/arch.png
+.. image:: /images/rpc/arch.svg
    :width: 60%
 
 ..
@@ -62,7 +62,7 @@ The diagram below shows the message flow during an rp.call operation:
     3. once the task is completed, a Direct Publisher is allocated to send the response message to the queuing system.
     4. once the message is dispatched by the exchange, it is fetched by the Direct Consumer dictated by the routing key (such as 'msg_id') and passed to the Invoker.
 
-.. image:: /images/rpc/flow1.png
+.. image:: /images/rpc/flow1.svg
    :width: 60%
 
 ..
@@ -75,7 +75,7 @@ The diagram below the message flow during an rp.cast operation:
     1. A Topic Publisher is instantiated to send the message request to the queuing system.
     2. Once the message is dispatched by the exchange, it is fetched by the Topic Consumer dictated by the routing key (such as 'topic') and passed to the Worker in charge of the task.
 
-.. image:: /images/rpc/flow2.png
+.. image:: /images/rpc/flow2.svg
    :width: 60%
 
 ..
@@ -100,7 +100,7 @@ The figure below shows the status of a RabbitMQ node after Nova components' boot
        5. scheduler.phantom (phantom is hostname)
        6. scheduler
 
-.. image:: /images/rpc/state.png
+.. image:: /images/rpc/state.svg
    :width: 60%
 
 ..
